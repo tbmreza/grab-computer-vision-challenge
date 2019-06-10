@@ -14,7 +14,12 @@ This solution description:
 - Applies segmentation prior to classification because ['segmenting an image does improve object categorization
 accuracy.'](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.310.6542)
 - Segmentation: [Mask RCNN](https://github.com/matterport/Mask_RCNN), Classification: [EfficientNet](https://github.com/lukemelas/EfficientNet-PyTorch).
+- The masking model is not evaluated.
 
+### Segment image (for train/eval/test preprocessing)
+- Load Mask RCNN model.
+- Run detection → r['masks'] → largest_mask
+- def segment(image, largest_mask): ... return 'object with black BG.jpg'
 
 ## Train model
 

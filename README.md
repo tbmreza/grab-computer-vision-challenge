@@ -1,14 +1,8 @@
 # grab-computer-vision-challenge
 
-My attempt on [aiforsea](https://www.aiforsea.com/challenges)[»computer-vision](https://www.aiforsea.com/computer-vision) challenge.
+My attempt on [aiforsea](https://www.aiforsea.com/challenges)»[computer-vision](https://www.aiforsea.com/computer-vision) challenge.
 
 <img src="https://raw.githubusercontent.com/tbmreza/grab-computer-vision-challenge/master/readme/Grab_EDM_Computer_Vision.webp?raw=true" alt="Computer vision challenge logo">
-
-## Requirements
-
-- keras==2.2.0
-- tensorflow==1.10.0
-- pillow==4.0.0
 
 ## Approach
 
@@ -23,9 +17,14 @@ This solution description:
 - More engineering than pure research.
 - Tries applying segmentation prior to classification because ['segmenting an image does improve object categorization
 accuracy.'](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.310.6542)
-- Segmentation: [Xception and MobileNet](https://github.com/susheelsk/image-background-removal), Classification: [EfficientNet](https://github.com/qubvel/efficientnet).
+- Segmentation: [Xception and MobileNet](https://github.com/susheelsk/image-background-removal) (A small portion of the training set are segmented using Xception. The rest are segmented using MobileNet that runs less than a second instead of 4 seconds each image), Classification: [EfficientNet-B3](https://github.com/qubvel/efficientnet).
 - The segmentation model is not evaluated.
 
+## Requirements
+
+- keras==2.2.0
+- tensorflow==1.10.0
+- pillow==4.0.0
 
 ## Train, validate, test model
 

@@ -1,19 +1,18 @@
 # grab-computer-vision-challenge
-Given a dataset of distinct car images, can you automatically recognize the car model and make?
-
-<img src="https://raw.githubusercontent.com/tbmreza/grab-computer-vision-challenge/master/readme/Grab_EDM_Computer_Vision.webp?raw=true" alt="Computer vision challenge logo">
 
 My attempt to accept [aiforsea/](https://www.aiforsea.com/challenges)[computer-vision](https://www.aiforsea.com/computer-vision) challenge.
 
+<img src="https://raw.githubusercontent.com/tbmreza/grab-computer-vision-challenge/master/readme/Grab_EDM_Computer_Vision.webp?raw=true" alt="Computer vision challenge logo">
+
 ## Requirements
 
-keras==2.2.0
-tensorflow==1.10.0
-pillow==4.0.0
+- keras==2.2.0
+- tensorflow==1.10.0
+- pillow==4.0.0
 
 ## Approach
 
-First thought:
+First thoughts:
 
 - Use state of the art method for image classification with necessary modification.
 - Idea for solution originality: does segmentation improve classification accuracy?
@@ -38,6 +37,11 @@ python3 main.py --removebg --predict
 python3 main.py --train --predict
 python3 main.py --removebg --train --predict
 ```
+- **--train** saves trained model to `models/{h5_filename}`
+- **--predict** loads model weights and predict images in test set folder.
+- **--removebg** sets true segmentation preprocessing for train/validation/test.
+
+Notebook equivalent to `python3 main.py --train --predict` or `python3 main.py --removebg --train --predict` is also provided.
 
 ## With and without background removal preprocessing
 
@@ -52,26 +56,27 @@ python3 main.py --removebg --train --predict
 <!-- Line 1: Train graph -->
 <tr>
 <td><em>Train graph</em></td>
-<td><img src="https://raw.githubusercontent.com/aleju/imgaug-doc/master/readme_images/small_overview/noop_image.jpg?raw=true" alt="input images"></td>
-<td><img src="https://raw.githubusercontent.com/aleju/imgaug-doc/master/readme_images/small_overview/noop_heatmap.jpg?raw=true" alt="input heatmaps"></td>
+<td><img src="https://raw.githubusercontent.com/tbmreza/grab-computer-vision-challenge/master/readme/train_graph.jpg?raw=true" alt="train_graph"></td>
+<td><img src="https://raw.githubusercontent.com/tbmreza/grab-computer-vision-challenge/master/readme/train_graph_preprocessing.jpg?raw=true" alt="train_graph_preprocessing"></td>
 </tr>
 
 <!-- Line 2: Validation graph -->
 <tr>
 <td><em>Validation graph</em></td>
-<td><img src="https://raw.githubusercontent.com/aleju/imgaug-doc/master/readme_images/small_overview/noop_image.jpg?raw=true" alt="input images"></td>
-<td><img src="https://raw.githubusercontent.com/aleju/imgaug-doc/master/readme_images/small_overview/noop_heatmap.jpg?raw=true" alt="input heatmaps"></td>
+<td><img src="https://raw.githubusercontent.com/tbmreza/grab-computer-vision-challenge/master/readme/validation_graph.jpg?raw=true" alt="train_graph"></td>
+<td><img src="https://raw.githubusercontent.com/tbmreza/grab-computer-vision-challenge/master/readme/validation_graph_preprocessing.jpg?raw=true" alt="validation_graph_preprocessing"></td>
 </tr>
 
 <!-- Line 3: Test accuracy -->
 <tr>
-<td><em>Test accuracy</em></td>
+<td><em>Test accuracy*</em></td>
 <td>80%</td>
 <td>82%</td>
 </tr>
 
 </table>
 
+*most recent run on my local machine.
 
 ## Acknowledgement
 

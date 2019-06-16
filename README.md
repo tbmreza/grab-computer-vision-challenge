@@ -1,6 +1,6 @@
 # grab-computer-vision-challenge
 
-My attempt to accept [aiforsea/](https://www.aiforsea.com/challenges)[computer-vision](https://www.aiforsea.com/computer-vision) challenge.
+My attempt on [aiforsea](https://www.aiforsea.com/challenges)[»computer-vision](https://www.aiforsea.com/computer-vision) challenge.
 
 <img src="https://raw.githubusercontent.com/tbmreza/grab-computer-vision-challenge/master/readme/Grab_EDM_Computer_Vision.webp?raw=true" alt="Computer vision challenge logo">
 
@@ -30,20 +30,15 @@ accuracy.'](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.310.6542)
 ## Train, validate, test model
 
 ```sh
-python3 main.py --train
-python3 main.py --predict
-python3 main.py --removebg --train
-python3 main.py --removebg --predict
-python3 main.py --train --predict
 python3 main.py --removebg --train --predict
 ```
-- **--train** saves trained model to `models/{h5_filename}`
-- **--predict** loads model weights and predict images in test set folder.
-- **--removebg** sets true segmentation preprocessing for train/validation/test.
+- `--train` saves trained model to `models/{h5_filename}`
+- `--predict` loads model weights and predict images in test set folder.
+- `--removebg` sets true segmentation preprocessing for train/validation/test.
 
 Notebook equivalent to `python3 main.py --train --predict` or `python3 main.py --removebg --train --predict` is also provided.
 
-## With and without background removal preprocessing
+## Results
 
 <table>
 
@@ -80,6 +75,6 @@ Notebook equivalent to `python3 main.py --train --predict` or `python3 main.py -
 
 ## Acknowledgement
 
-https://github.com/Tony607/efficientnet_keras_transfer_learning
-https://github.com/qubvel/efficientnet
-https://github.com/susheelsk/image-background-removal
+- https://github.com/Tony607/efficientnet_keras_transfer_learning
+- https://github.com/qubvel/efficientnet
+- https://github.com/susheelsk/image-background-removal

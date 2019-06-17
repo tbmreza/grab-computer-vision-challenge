@@ -13,7 +13,7 @@ First thoughts:
 
 This solution description:
 
-- Downloaded better organized dataset from [kaggle](https://www.kaggle.com/jutrera/stanford-car-dataset-by-classes-folder).
+- Downloaded better organized dataset from [this kaggle post](https://www.kaggle.com/jutrera/stanford-car-dataset-by-classes-folder).
 - More engineering than pure research.
 - Tries applying segmentation prior to classification because ['segmenting an image does improve object categorization
 accuracy.'](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.310.6542)
@@ -22,7 +22,7 @@ accuracy.'](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.310.6542)
 
 ## Requirements
 
-- keras==2.2.0
+- keras==2.2.0 (version 2.2.4 may raise _ImportError: cannot import name 'GeneratorEnqueuer'_)
 - tensorflow==1.10.0
 - pillow==4.0.0
 
@@ -38,6 +38,9 @@ python3 main.py --removebg --train --predict
 Notebook equivalent to `python3 main.py --train --predict` or `python3 main.py --removebg --train --predict` is also provided.
 
 ## Results
+
+Due to hardware limitations, I had to narrow down the scope of this solution from both achieving accuracy as high as possible and comparing the model performance with/without segmentation preprocessing to only the latter. Practically, I set `BATCH_SIZE` and `learning rate` to suboptimal numbers to achieve quicker computation time.
+
 
 <table>
 
@@ -71,6 +74,13 @@ Notebook equivalent to `python3 main.py --train --predict` or `python3 main.py -
 </table>
 
 *most recent run on my local machine.
+
+How I split the dataset:
+- Initially the dataset from [this kaggle post](https://www.kaggle.com/jutrera/stanford-car-dataset-by-classes-folder) is roughly 50-50 split with 8,144 train and 8,041 test images.
+- Left the **train** set folder as is.
+- Renamed the other folder to **validation**.
+- Cut 3 images from each classes to new folder named **test**.
+- **train**: 8,144 **validation**: 7,453 **test**: 3*196=588
 
 ## Acknowledgement
 

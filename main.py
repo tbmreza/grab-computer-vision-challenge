@@ -186,7 +186,7 @@ def test_accuracy():
             else:
                 print(f'Wrong: folder = {folder}, verdict = {verdict}')
 
-    return f'Test accuracy: {correct/total*100}% ({correct}/588)'
+    print(f'Test accuracy: {correct/total*100}% ({correct}/588)')
 
 
 class Solution:
@@ -204,7 +204,6 @@ class Solution:
         '''
         generate_dataset(self.remove_background)
         compile_model(self.h5_file)
-        plot_epochs()
 
 
     def predict_cars(self):
@@ -239,6 +238,7 @@ if __name__ == '__main__':
 
     if args.train:
         run.train_model()
+        plot_epochs()
     if args.predict:
         assert os.path.exists(run.h5_file)
         run.predict_cars()

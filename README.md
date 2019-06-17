@@ -28,6 +28,14 @@ accuracy.'](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.310.6542)
 
 ## Train, validate, test model
 
+How I split the dataset:
+- Initially the dataset from [this kaggle post](https://www.kaggle.com/jutrera/stanford-car-dataset-by-classes-folder) is roughly 50-50 split with 8,144 train and 8,041 test images.
+- Left the **train** set folder as is.
+- Renamed the other folder to **validation**.
+- Cut 3 images from each classes to new folder named **test**.
+- **train**: 8,144 **validation**: 7,453 **test**: 3*196=588
+- I also wrote `seg_dataset.sh` and `convert_to_white_bg.py` for --removebg implementation.
+
 ```sh
 python3 main.py --removebg --train --predict
 ```
@@ -39,8 +47,7 @@ Notebook equivalent to `python3 main.py --train --predict` or `python3 main.py -
 
 ## Results
 
-Due to hardware limitations, I had to narrow down the scope of this solution from both achieving accuracy as high as possible and comparing the model performance with/without segmentation preprocessing to only the latter. Practically, I set `BATCH_SIZE` and `learning rate` to suboptimal numbers to achieve quicker computation time.
-
+Due to hardware limitations, I had to narrow down the scope of this solution from both achieving accuracy as high as possible and comparing the model performance with/without segmentation preprocessing to only the latter. Practically, I set the image size and some parameters (BATCH_SIZE, learning rate, etc) to suboptimal numbers to achieve quicker computation time.
 
 <table>
 
@@ -50,37 +57,25 @@ Due to hardware limitations, I had to narrow down the scope of this solution fro
 <th>With preprocessing</th>
 </tr>
 
-<!-- Line 1: Train graph -->
+<!-- Line 1: Accuracy graph -->
 <tr>
-<td><em>Train graph</em></td>
-<td><img src="https://raw.githubusercontent.com/tbmreza/grab-computer-vision-challenge/master/readme/train_graph.jpg?raw=true" alt="train_graph"></td>
-<td><img src="https://raw.githubusercontent.com/tbmreza/grab-computer-vision-challenge/master/readme/train_graph_preprocessing.jpg?raw=true" alt="train_graph_preprocessing"></td>
+<td><em>Accuracy graph</em></td>
+<td><img src="https://raw.githubusercontent.com/tbmreza/grab-computer-vision-challenge/master/readme/train_val_acc.png?raw=true" alt="train_val_acc"></td>
+<td><img src="https://raw.githubusercontent.com/tbmreza/grab-computer-vision-challenge/master/readme/train_val_acc_removebg.png?raw=true" alt="train_val_acc_removebg"></td>
 </tr>
 
-<!-- Line 2: Validation graph -->
+<!-- Line 2: Loss graph -->
 <tr>
-<td><em>Validation graph</em></td>
+<td><em>Loss graph</em></td>
 <td><img src="https://raw.githubusercontent.com/tbmreza/grab-computer-vision-challenge/master/readme/validation_graph.jpg?raw=true" alt="train_graph"></td>
 <td><img src="https://raw.githubusercontent.com/tbmreza/grab-computer-vision-challenge/master/readme/validation_graph_preprocessing.jpg?raw=true" alt="validation_graph_preprocessing"></td>
 </tr>
 
-<!-- Line 3: Test accuracy -->
-<tr>
-<td><em>Test accuracy*</em></td>
-<td>80%</td>
-<td>82%</td>
-</tr>
-
 </table>
 
-*most recent run on my local machine.
+## Conclusion
 
-How I split the dataset:
-- Initially the dataset from [this kaggle post](https://www.kaggle.com/jutrera/stanford-car-dataset-by-classes-folder) is roughly 50-50 split with 8,144 train and 8,041 test images.
-- Left the **train** set folder as is.
-- Renamed the other folder to **validation**.
-- Cut 3 images from each classes to new folder named **test**.
-- **train**: 8,144 **validation**: 7,453 **test**: 3*196=588
+Image background removal will not give classification model free accuracy increase. It is no substitute for better algorithm design i.e. deep learning architecture fine-tuning.
 
 ## Acknowledgement
 

@@ -67,8 +67,8 @@ Due to hardware limitations, I had to narrow down the scope of this solution fro
 <!-- Line 2: Loss graph -->
 <tr>
 <td><em>Loss graph</em></td>
-<td><img src="https://raw.githubusercontent.com/tbmreza/grab-computer-vision-challenge/master/readme/validation_graph.jpg?raw=true" alt="train_graph"></td>
-<td><img src="https://raw.githubusercontent.com/tbmreza/grab-computer-vision-challenge/master/readme/validation_graph_preprocessing.jpg?raw=true" alt="validation_graph_preprocessing"></td>
+<td><img src="https://raw.githubusercontent.com/tbmreza/grab-computer-vision-challenge/master/readme/train_val_loss.png?raw=true" alt="train_val_loss"></td>
+<td><img src="https://raw.githubusercontent.com/tbmreza/grab-computer-vision-challenge/master/readme/train_val_loss_removebg.png?raw=true" alt="train_val_loss_removebg"></td>
 </tr>
 
 </table>
